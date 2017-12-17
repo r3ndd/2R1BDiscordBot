@@ -14,7 +14,8 @@ const games = {
 const lobby = {
 	starter: null,
 	players: [],
-	game: 0
+	game: 0,
+	setup: "basic"
 };
 
 module.exports = {

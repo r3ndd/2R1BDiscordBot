@@ -56,8 +56,8 @@ class Game {
 				
 				this.rounds = 5;
 				this.roundTimes = {
-					1: 5,
-					2: 4,
+					1: 3,
+					2: 3,
 					3: 3,
 					4: 2,
 					5: 1

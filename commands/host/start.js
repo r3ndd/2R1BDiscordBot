@@ -31,7 +31,7 @@ class StartCommand extends commando.Command {
 								"Everyone go join your room on the left!").then(() => {
 
 								let gameRoom = lobby.game;
-								games[gameRoom] = new Game(lobby.players, gameRoom);
+								games[gameRoom] = new Game(lobby.players, gameRoom, lobby.setup);
 
 								lobby.starter = null;
 								lobby.players = [];
