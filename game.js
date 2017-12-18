@@ -452,12 +452,12 @@ class Game {
 			if (this.players[president.id].room == this.players[bomber.id].room) {
 				sameRoom = true;
 				//winMsg = "They are in the same room, **Red** team wins!";
-				winMsg = "The **Red** team wins!";
+				winMsg = "The **Red** team wins!\n";
 			}
 			else {
 				sameRoom = false;
 				//winMsg = "They are in different rooms, **Blue** team wins!";
-				winMsg = "The **Blue** team wins!";
+				winMsg = "The **Blue** team wins!\n";
 			}
 			
 			if (gambler) {
@@ -467,7 +467,7 @@ class Game {
 			
 			for (let p in this.players) {
 				p = this.players[p];
-				pList += ("**" + p.name.showName() + "** was **" + p.color + " " + p.role + "**");
+				pList += ("**" + p.name.showName() + "** was **" + p.color + " " + p.role + "**\n");
 			}
 			
 			guild.channels.find("name", "wins").send(
@@ -478,7 +478,7 @@ class Game {
 				"The **Bomber** was **" + bomber.showName() + "**\n" + */
 				pList + 
 				gamblerMsg
-			);
+			).then(() => {console.log("");});
 			
 			utils.openDb(db => {
 				for (let p in this.players) {
