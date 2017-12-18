@@ -25,7 +25,7 @@ class StartCommand extends commando.Command {
 
 				if (user.id == lobby.starter.id) {
 
-					if (lobby.players.length >= 6) {
+					if (lobby.players.length >= 4) {
 						try {
 							message.channel.send("Starting game...\n" +
 								"Everyone go join your room on the left!").then(() => {
