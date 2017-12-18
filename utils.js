@@ -35,7 +35,7 @@ var addWin = (db, pId, color) => {
 			db.close();
 		else {
 			if (res.length) {
-				db.collection("playerStats").updateOne(
+				db.db("2r1b").collection("playerStats").updateOne(
 					{id: pId},
 					{$inc: {wins: 1, [colorKey]: 1}},
 					err => {
@@ -44,7 +44,7 @@ var addWin = (db, pId, color) => {
 				);
 			}
 			else {
-				db.collection("playerStats").insertOne(
+				db.db("2r1b").collection("playerStats").insertOne(
 					{
 						id: pId,
 						wins: 1,
@@ -80,7 +80,7 @@ var addLoss = (db, pId, color) => {
 			db.close();
 		else {
 			if (res.length) {
-				db.collection("playerStats").updateOne(
+				db.db("2r1b").collection("playerStats").updateOne(
 					{id: pId},
 					{$inc: {losses: 1, [colorKey]: 1}},
 					err => {
@@ -89,7 +89,7 @@ var addLoss = (db, pId, color) => {
 				);
 			}
 			else {
-				db.collection("playerStats").insertOne(
+				db.db("2r1b").collection("playerStats").insertOne(
 					{
 						id: pId,
 						wins: 0,
