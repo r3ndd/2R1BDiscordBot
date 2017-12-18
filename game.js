@@ -77,8 +77,8 @@ class Game {
 				
 				this.rounds = 3;
 				this.roundTimes = {
-					1: 3,
-					2: 2,
+					1: 1,
+					2: 1,
 					3: 1
 				};
 				this.numHostages = 1;
@@ -417,7 +417,7 @@ class Game {
 					pList += ("**" + p.name.showName() + "** was **" + p.color + " " + p.role + "**");
 					
 					if (
-						p.color == "red" && sameroom ||
+						p.color == "red" && sameRoom ||
 						p.color == "blue" && !sameRoom ||
 						p.role == "gambler" && this.gamblerTeam == "red" && sameRoom ||
 						p.role == "gambler" && this.gamblerTeam == "blue" && !sameRoom
