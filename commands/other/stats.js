@@ -12,7 +12,7 @@ class StatsCommand extends commando.Command {
 			description: "Gets the stats of the given player",
 			args: [
 				{
-					key: "type",
+					key: "target",
 					prompt: "Show a player's stats with `!stats @name`",
 					type: "user"
 				}
