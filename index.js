@@ -5,6 +5,7 @@ const games = global.games;
 
 bot.registry.registerGroup("host", "Host");
 bot.registry.registerGroup("game", "Game");
+bot.registry.registerGroup("other", "Other");
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + "/commands");
 

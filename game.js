@@ -381,7 +381,7 @@ class Game {
 		try {
 			var guild = bot.guilds.first();
 			
-			var president, bomber, gambler, sameRoom, winMsg = "", gamblerMsg = "";
+			var president, bomber, gambler, sameRoom, winMsg = "", gamblerMsg = "", pList = "";
 
 			for (let p in this.players) {
 				if (this.players[p].role == "president") {
@@ -397,22 +397,47 @@ class Game {
 
 			if (this.players[president.id].room == this.players[bomber.id].room) {
 				sameRoom = true;
-				winMsg = "They are in the same room, **Red** team wins!";
+				//winMsg = "They are in the same room, **Red** team wins!";
+				winMsg = "The **Red** team wins!";
 			}
 			else {
 				sameRoom = false;
-				winMsg = "They are in different rooms, **Blue** team wins!";
+				//winMsg = "They are in different rooms, **Blue** team wins!";
+				winMsg = "The **Blue** team wins!";
 			}
 			
 			if (gambler) {
-				gamblerMsg = gambler.showName() + ", the **Gambler**, sided with the " + this.gamblerTeam + " team\n";
+				//gamblerMsg = "**" + gambler.showName() + "**, the **Gambler**, sided with the **" + this.gamblerTeam + "** team\n";
+				gamblerMsg = "The **Gambler** sided with the **" + this.gamblerTeam + "** team\n";
 			}
 			
+			utils.openDb(db => {
+				for (let p in this.players) {
+					p = this.players[p];
+					pList += ("**" + p.name.showName() + "** was **" + p.color + " " + p.role + "**");
+					
+					if (
+						p.color == "red" && sameroom ||
+						p.color == "blue" && !sameRoom ||
+						p.role == "gambler" && this.gamblerTeam == "red" && sameRoom ||
+						p.role == "gambler" && this.gamblerTeam == "blue" && !sameRoom
+					) {
+						utils.addWin(db, p.name.id, p.color);
+					}
+					else {
+						utils.addLoss(db, p.name.id, p.color);
+					}
+				};
+			});
+			
 			guild.channels.find("name", "wins").send(
-				"The game is over!\n" + 
-				"The **President** was **" + president.showName() + "**\n" +
-				"The **Bomber** was **" + bomber.showName() + "**\n" + 
-				gamblerMsg + winMsg
+				"@here\n" + 
+				"**========== Game Finished ==========**\n" + 
+				winMsg +
+				/* "The **President** was **" + president.showName() + "**\n" +
+				"The **Bomber** was **" + bomber.showName() + "**\n" + */
+				pList + 
+				gamblerMsg
 			);
 			
 			this.clearGame();

@@ -1,5 +1,7 @@
 const commando = require("discord.js-commando");
 
+const dbUrl = "mongodb://localhost:27017/2r1b";
+
 const bot = new commando.Client({
 	commandPrefix: "!",
 	unknownCommandResponse: false

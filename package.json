@@ -11,6 +11,7 @@
   "dependencies": {
     "async": "^2.6.0",
     "discord.js": "github:hydrabolt/discord.js#11.3-dev",
-    "discord.js-commando": "^0.9.0"
+    "discord.js-commando": "^0.9.0",
+    "mongodb": "^3.0.0-rc0"
   }
 }

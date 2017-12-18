@@ -19,14 +19,11 @@ class CancelCommand extends commando.Command {
 		
 			//Checks if in lobby
 			if (message.channel.name == "lobby") {
-				if (lobby.starter.id == message.author.id) {
-					
-					lobby.starter = null;
-					lobby.players = [];
-					lobby.game = 0;
-					
-					message.channel.send("Canceled game. Type `!create` to start a new one.");
-				}
+				lobby.starter = null;
+				lobby.players = [];
+				lobby.game = 0;
+
+				message.channel.send("Canceled game. Type `!create` to start a new one.");
 			}
 		}
 		catch (e) {
