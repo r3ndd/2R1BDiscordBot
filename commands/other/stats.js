@@ -25,7 +25,6 @@ class StatsCommand extends commando.Command {
 		try {
 			var target = new User(args.target);
 			utils.openDb(db => {
-				console.log(db);
 				db.db("2r1b").collection("playerStats").find({id: target.id}).toArray((err, res) => {
 					if (res.length) {
 						var player = res[0];
