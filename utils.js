@@ -17,6 +17,7 @@ var getMember = id => {
 
 var openDb = cb => {
 	MongoClient.connect(global.dbUrl, (err, db) => {
+		db = db.db("2r1b");
 		if (err) {
 			console.log(err);
 			db.close();
