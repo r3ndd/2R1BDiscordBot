@@ -17,7 +17,6 @@ var getMember = id => {
 
 var openDb = cb => {
 	MongoClient.connect(global.dbUrl, (err, db) => {
-		db = db.db("2r1b");
 		if (err) {
 			console.log(err);
 			db.close();
@@ -31,7 +30,7 @@ var openDb = cb => {
 
 var addWin = (db, pId, color) => {
 	let colorKey = "colors." + color + ".wins";
-	db.collection("playerStats").find({id: target.id}).toArray((err, res) => {
+	db.db("2r1b").collection("playerStats").find({id: target.id}).toArray((err, res) => {
 		if (err)
 			db.close();
 		else {
@@ -76,7 +75,7 @@ var addWin = (db, pId, color) => {
 
 var addLoss = (db, pId, color) => {
 	let colorKey = "colors." + color + ".losses";
-	db.collection("playerStats").find({id: target.id}).toArray((err, res) => {
+	db.db("2r1b").collection("playerStats").find({id: target.id}).toArray((err, res) => {
 		if (err)
 			db.close();
 		else {
