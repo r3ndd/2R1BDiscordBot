@@ -23,5 +23,6 @@ const lobby = {
 module.exports = {
 	bot: bot,
 	games: games,
-	lobby: lobby
+	lobby: lobby,
+	dbUrl: dbUrl
 };
