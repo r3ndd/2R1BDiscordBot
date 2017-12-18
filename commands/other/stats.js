@@ -24,7 +24,7 @@ class StatsCommand extends commando.Command {
 	async run (message, args) {
 		try {
 			var target = new User(args.target);
-			openDb(db => {
+			utils.openDb(db => {
 				db.collection("playerStats").find({id: target.id}).toArray((err, res) => {
 					if (res.length) {
 						var player = res[0];
