@@ -428,10 +428,24 @@ class Game {
 				gamblerMsg = "The **Gambler** sided with the **" + this.gamblerTeam + "** team\n";
 			}
 			
+			for (let p in this.players) {
+				p = this.players[p];
+				pList += ("**" + p.name.showName() + "** was **" + p.color + " " + p.role + "**");
+			}
+			
+			guild.channels.find("name", "wins").send(
+				"@here\n" + 
+				"**========== Game Finished ==========**\n" + 
+				winMsg +
+				/* "The **President** was **" + president.showName() + "**\n" +
+				"The **Bomber** was **" + bomber.showName() + "**\n" + */
+				pList + 
+				gamblerMsg
+			);
+			
 			utils.openDb(db => {
 				for (let p in this.players) {
 					p = this.players[p];
-					pList += ("**" + p.name.showName() + "** was **" + p.color + " " + p.role + "**");
 					
 					if (
 						p.color == "red" && sameRoom ||
@@ -446,16 +460,6 @@ class Game {
 					}
 				};
 			});
-			
-			guild.channels.find("name", "wins").send(
-				"@here\n" + 
-				"**========== Game Finished ==========**\n" + 
-				winMsg +
-				/* "The **President** was **" + president.showName() + "**\n" +
-				"The **Bomber** was **" + bomber.showName() + "**\n" + */
-				pList + 
-				gamblerMsg
-			);
 			
 			this.clearGame();
 		}

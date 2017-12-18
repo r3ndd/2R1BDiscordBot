@@ -35,19 +35,19 @@ class StatsCommand extends commando.Command {
 							"**========== Stats of " + target.showName() + " ==========**" + 
 							"\nWins: " + player.wins +
 							"\nLosses: " + player.losses +
-							"\nTotal Win Ratio: " + (player.wins / player.losses).toFixed(2) +
+							"\nTotal Win Ratio: " + (player.wins / player.losses || 0).toFixed(2) +
 							"\n-----" +
 							"\nBlue Wins: " + player.colors.blue.wins +
 							"\nBlue Losses: " + player.colors.blue.losses +
-							"\nBlue Win Ratio: " + (player.colors.blue.wins / player.colors.blue.losses).toFixed(2) +
+							"\nBlue Win Ratio: " + (player.colors.blue.wins / player.colors.blue.losses || 0).toFixed(2) +
 							"\n-----" +
 							"\nRed Wins: " + player.colors.red.wins +
 							"\nRed Losses: " + player.colors.red.losses +
-							"\nRed Win Ratio: " + (player.colors.red.wins / player.colors.red.losses).toFixed(2) +
+							"\nRed Win Ratio: " + (player.colors.red.wins / player.colors.red.losses || 0).toFixed(2) +
 							"\n-----" +
 							"\nGrey Wins: " + player.colors.grey.wins +
 							"\nGrey Losses: " + player.colors.grey.losses +
-							"\nGrey Win Ratio: " + (player.colors.grey.wins / player.colors.grey.losses).toFixed(2)
+							"\nGrey Win Ratio: " + (player.colors.grey.wins / player.colors.grey.losses || 0).toFixed(2)
 						);
 					}
 					else {
