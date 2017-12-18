@@ -21,8 +21,10 @@ var openDb = cb => {
 			console.log(err);
 			db.close();
 		}
-		else
+		else {
+			console.log("db connection successful");
 			cb(db);
+		}
 	});
 };
 
