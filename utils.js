@@ -122,5 +122,7 @@ module.exports = {
 	random: random,
 	randArrVal: randArrVal,
 	getMember: getMember,
-	openDb: openDb
+	openDb: openDb,
+	addWin: addWin,
+	addLoss: addLoss
 };
