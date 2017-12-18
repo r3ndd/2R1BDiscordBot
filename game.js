@@ -310,7 +310,7 @@ class Game {
 			var roundAnnounce = "";
 
 			if (this.round != this.rounds) {
-				roundAnnounce = "This is **Round " + this.round + "**, it will last for " + this.roundTimes[this.round] + " minutes.\n";
+				roundAnnounce = "This is **Round " + this.round + " of " + this.rounds + "**, it will last for " + this.roundTimes[this.round] + " minutes.\n";
 			}
 			else {
 				roundAnnounce = "This is the Final Round, it will last for " + this.roundTimes[this.round] + " minutes.\n";
@@ -379,6 +379,8 @@ class Game {
 	
 	endGame () {
 		try {
+			var guild = bot.guilds.first();
+			
 			var president, bomber, gambler, sameRoom, winMsg = "", gamblerMsg = "";
 
 			for (let p in this.players) {
@@ -405,16 +407,15 @@ class Game {
 			if (gambler) {
 				gamblerMsg = gambler.showName() + ", the **Gambler**, sided with the " + this.gamblerTeam + " team\n";
 			}
-
-			this.sendAll(
+			
+			guild.channels.find("name", "wins").send(
 				"The game is over!\n" + 
 				"The **President** was **" + president.showName() + "**\n" +
 				"The **Bomber** was **" + bomber.showName() + "**\n" + 
-				gamblerMsg + winMsg,
-				() => {
-					this.clearGame();
-				}
+				gamblerMsg + winMsg
 			);
+			
+			this.clearGame();
 		}
 		catch (e) {
 			console.log(e);
