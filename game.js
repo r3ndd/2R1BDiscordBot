@@ -43,7 +43,30 @@ class Game {
 		switch (setup) {
 			case "someSetup":
 				break;
-			case "large":
+			case "shy":
+				this.roles = {
+					red: {
+						bomber: 1,
+						shyguy: 1
+					},
+					blue: {
+						president: 1,
+						shyguy: 1
+					},
+					grey: {}
+				}
+				
+				this.rounds = 5;
+				this.roundTimes = {
+					1: 3,
+					2: 3,
+					3: 3,
+					4: 2,
+					5: 1
+				};
+				this.numHostages = 1;
+				break;
+			case "long":
 				this.roles = {
 					red: {
 						bomber: 1
@@ -152,8 +175,22 @@ class Game {
 			tempList.splice(tempList.indexOf(player), 1);
 		}
 		
-		this.players[utils.randArrVal(redTeam)].role = "bomber";
-		this.players[utils.randArrVal(blueTeam)].role = "president";
+		for (let color in this.roles) {
+			for (let role in this.roles[color]) {
+				for (let i = 0; i < this.roles[color][role]; i++) {
+					switch (color) {
+						case "red":
+							this.players[utils.randArrVal(redTeam)].role = role;
+							break;
+						case "blue":
+							this.players[utils.randArrVal(blueTeam)].role = role;
+							break;
+					}
+				}
+			}
+		}
+		//this.players[utils.randArrVal(redTeam)].role = "bomber";
+		//this.players[utils.randArrVal(blueTeam)].role = "president";
 		
 		//Assign the rest of the players to their rooms
 		for (let i = 0; i < teamSize; i++) {

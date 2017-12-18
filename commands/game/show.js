@@ -42,7 +42,7 @@ class ShowCommand extends commando.Command {
 					if (g) {
 						if (player in g.players) {
 							if (type == "role" || type == "color") {
-								if (target.id in g.players) {
+								if (target.id in g.players && g.players[player].role != "shyguy") {
 									if (g.players[target.id].room == g.players[player].room) {
 										if (type == "color") {
 											guild.members.find("id", target.id).sendMessage(
@@ -65,7 +65,7 @@ class ShowCommand extends commando.Command {
 										);
 									}
 								}
-								else {
+								else if (!(target.id in g.players)) {
 									message.channel.send(target.tag + " is not in this game!");
 								}
 							}

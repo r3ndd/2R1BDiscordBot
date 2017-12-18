@@ -34,20 +34,22 @@ class ShowAllCommand extends commando.Command {
 					
 					if (g) {
 						if (player in g.players) {
-							if (type == "color") {
-								message.channel.send(
-									"The color of **" + g.players[player].name.showName() + "** is **" + g.players[player].color + "**"
-								);
-							}
-							else if (type == "role") {
-								message.channel.send(
-									"The role of **" + g.players[player].name.showName() + "** is **" + g.players[player].color + " " + g.players[player].role + "**"
-								);
-							}
-							else {
-								message.channel.send(
-									"You must choose either `!showall color` or `!showall role`"
-								);
+							if (g.players[player].role != "shyguy") {
+								if (type == "color") {
+									message.channel.send(
+										"The color of **" + g.players[player].name.showName() + "** is **" + g.players[player].color + "**"
+									);
+								}
+								else if (type == "role") {
+									message.channel.send(
+										"The role of **" + g.players[player].name.showName() + "** is **" + g.players[player].color + " " + g.players[player].role + "**"
+									);
+								}
+								else {
+									message.channel.send(
+										"You must choose either `!showall color` or `!showall role`"
+									);
+								}
 							}
 						}
 					}
