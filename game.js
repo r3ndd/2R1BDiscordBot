@@ -64,6 +64,23 @@ class Game {
 				};
 				this.numHostages = 1;
 				break;
+			case "test":
+				this.roles = {
+					red: {
+						bomber: 1
+					},
+					blue: {
+						president: 1
+					},
+					grey: {}
+				}
+				
+				this.rounds = 1;
+				this.roundTimes = {
+					1: 1
+				};
+				this.numHostages = 1;
+				break;
 			default:
 				this.roles = {
 					red: {
@@ -77,8 +94,8 @@ class Game {
 				
 				this.rounds = 3;
 				this.roundTimes = {
-					1: 1,
-					2: 1,
+					1: 3,
+					2: 2,
 					3: 1
 				};
 				this.numHostages = 1;

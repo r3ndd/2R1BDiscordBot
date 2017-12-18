@@ -30,7 +30,7 @@ var openDb = cb => {
 
 var addWin = (db, pId, color) => {
 	let colorKey = "colors." + color + ".wins";
-	db.db("2r1b").collection("playerStats").find({id: target.id}).toArray((err, res) => {
+	db.db("2r1b").collection("playerStats").find({id: pId}).toArray((err, res) => {
 		if (err)
 			db.close();
 		else {
@@ -75,7 +75,7 @@ var addWin = (db, pId, color) => {
 
 var addLoss = (db, pId, color) => {
 	let colorKey = "colors." + color + ".losses";
-	db.db("2r1b").collection("playerStats").find({id: target.id}).toArray((err, res) => {
+	db.db("2r1b").collection("playerStats").find({id: pId}).toArray((err, res) => {
 		if (err)
 			db.close();
 		else {
