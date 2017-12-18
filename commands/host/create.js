@@ -58,6 +58,7 @@ class CreateCommand extends commando.Command {
 						lobby.players.push(starter);
 						lobby.game = openGame;
 						lobby.setup = args.split(" ")[0] || "basic";
+						console.log("Creating with setup " + lobby.setup);
 					}
 					else if (!openGame) {
 						message.channel.send("There are no open game slots!");
