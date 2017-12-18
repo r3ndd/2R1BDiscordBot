@@ -47,7 +47,7 @@ class StatsCommand extends commando.Command {
 							"\n-----" +
 							"\nGrey Wins: " + player.colors.grey.wins +
 							"\nGrey Losses: " + player.colors.grey.losses +
-							"\nGrey Win Ratio: " + (player.colors.grey.wins / player.colors.grey.losses).toFixed(2) +
+							"\nGrey Win Ratio: " + (player.colors.grey.wins / player.colors.grey.losses).toFixed(2)
 						);
 					}
 					else {
