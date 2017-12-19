@@ -480,10 +480,10 @@ class Game {
 				"**========== Game Finished ==========**\n" + 
 				winMsg +
 				"-----\n" + 
-				"*Room 1*" + 
+				"*Room 1*\n" + 
 				room1List + 
 				"-----\n" + 
-				"*Room 2*" + 
+				"*Room 2*\n" + 
 				room2List + 
 				"-----\n" + 
 				gamblerMsg
