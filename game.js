@@ -175,7 +175,7 @@ class Game {
 			tempList.splice(tempList.indexOf(player), 1);
 		}
 		
-		var blueTemp = blueTesm.slice();
+		var blueTemp = blueTeam.slice();
 		var redTemp = redTeam.slice();
 		
 		for (let color in this.roles) {
