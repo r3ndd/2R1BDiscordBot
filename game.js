@@ -435,7 +435,7 @@ class Game {
 		try {
 			var guild = bot.guilds.first();
 			
-			var president, bomber, gambler, sameRoom, winMsg = "", gamblerMsg = "", pList = "";
+			var president, bomber, gambler, sameRoom, winMsg = "", gamblerMsg = "", room1List = "", room2List = "";
 
 			for (let p in this.players) {
 				if (this.players[p].role == "president") {
@@ -467,16 +467,25 @@ class Game {
 			
 			for (let p in this.players) {
 				p = this.players[p];
-				pList += ("**" + p.name.showName() + "** was **" + p.color + " " + p.role + "**\n");
+				if (p.room == 1) {
+					room1List += ("**" + p.name.showName() + "** the **" + p.color + " " + p.role + "**\n");
+				}
+				else {
+					room2List += ("**" + p.name.showName() + "** the **" + p.color + " " + p.role + "**\n");
+				}
 			}
 			
 			guild.channels.find("name", "wins").send(
 				"@here\n" + 
 				"**========== Game Finished ==========**\n" + 
 				winMsg +
-				/* "The **President** was **" + president.showName() + "**\n" +
-				"The **Bomber** was **" + bomber.showName() + "**\n" + */
-				pList + 
+				"-----" + 
+				"*Room 1*" + 
+				room1List + 
+				"-----" + 
+				"*Room 2*" + 
+				room1List + 
+				"-----" + 
 				gamblerMsg
 			).then(() => {console.log("");});
 			
