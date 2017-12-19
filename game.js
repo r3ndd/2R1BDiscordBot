@@ -183,12 +183,12 @@ class Game {
 				for (let i = 0; i < this.roles[color][role]; i++) {
 					switch (color) {
 						case "red":
-							player = utils.randArrVal(redTemp);
+							let player = utils.randArrVal(redTemp);
 							this.players[player].role = role;
 							redTemp.splice(redTemp.indexOf(player), 1);
 							break;
 						case "blue":
-							player = utils.randArrVal(blueTemp);
+							let player = utils.randArrVal(blueTemp);
 							this.players[player].role = role;
 							blueTemp.splice(blueTemp.indexOf(player), 1);
 							break;
