@@ -479,13 +479,13 @@ class Game {
 				"@here\n" + 
 				"**========== Game Finished ==========**\n" + 
 				winMsg +
-				"-----" + 
+				"-----\n" + 
 				"*Room 1*" + 
 				room1List + 
-				"-----" + 
+				"-----\n" + 
 				"*Room 2*" + 
 				room1List + 
-				"-----" + 
+				"-----\n" + 
 				gamblerMsg
 			).then(() => {console.log("");});
 			
