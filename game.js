@@ -484,7 +484,7 @@ class Game {
 				room1List + 
 				"-----\n" + 
 				"*Room 2*" + 
-				room1List + 
+				room2List + 
 				"-----\n" + 
 				gamblerMsg
 			).then(() => {console.log("");});
