@@ -13,7 +13,14 @@ class CreateCommand extends commando.Command {
 			name: "create",
 			group: "host",
 			memberName: "create",
-			description: "Creates a game"
+			description: "Creates a game",
+			args: [
+				{
+					key: "target",
+					prompt: "Show a player's stats with `!stats @name`",
+					type: "user"
+				}
+			]
 		});
 	}
 	
