@@ -12,8 +12,8 @@ class CreateCommand extends commando.Command {
 		super(client, {
 			name: "create",
 			group: "host",
-			memberName: "create"/*,
-			description: "Creates a game",
+			memberName: "create",
+			description: "Creates a game"/*,
 			args: [
 				{
 					key: "target",
