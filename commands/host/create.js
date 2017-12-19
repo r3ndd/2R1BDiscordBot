@@ -12,7 +12,7 @@ class CreateCommand extends commando.Command {
 		super(client, {
 			name: "create",
 			group: "host",
-			memberName: "create",
+			memberName: "create"/*,
 			description: "Creates a game",
 			args: [
 				{
@@ -20,7 +20,7 @@ class CreateCommand extends commando.Command {
 					prompt: "Show a player's stats with `!stats @name`",
 					type: "user"
 				}
-			]
+			]*/
 		});
 	}
 	
